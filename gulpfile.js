@@ -23,7 +23,7 @@ const scripts = () => {
     .pipe(babel({
       presets: [['@babel/preset-env']]
     }))
-    .pipe(concat('app.js'))
+    .pipe(concat('index.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('build/js'))
     .pipe(browsersync.stream());
@@ -36,7 +36,7 @@ const vendor = () => {
 };
 
 const styles = () => {
-  return src('src/scss/app.scss')
+  return src('src/scss/index.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(sourcemaps.write('.'))
@@ -63,11 +63,18 @@ const sendImages = () => {
     .pipe(browsersync.stream());
 };
 
+const sendFonts = () => {
+  return src('src/scss/fonts/**')
+    .pipe(dest('build/css/fonts'))
+    .pipe(browsersync.stream());
+};
+
 const watcher = () => {
   watch('src/js/*.js', scripts);
   watch('src/scss/**/*.scss', styles);
   watch('src/html/**/*.html', generateHtml);
   watch('src/images/**', sendImages);
+  watch('src/fonts/**', sendFonts);
   watch('src/vendor/**', vendor);
 };
 
@@ -76,4 +83,4 @@ exports.css = styles;
 exports.html = generateHtml;
 exports.images = sendImages;
 exports.watch = parallel(watcher, browserSync);
-exports.build = parallel(scripts, styles, generateHtml, sendImages, vendor);
+exports.build = parallel(scripts, styles, generateHtml, sendImages, sendFonts, vendor);
