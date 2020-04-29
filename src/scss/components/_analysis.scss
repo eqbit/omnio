@@ -1,0 +1,96 @@
+@import "../variables";
+
+.analysis {
+  background: $primary;
+  margin-top: 120px;
+  padding: 70px 0;
+  color: #FFF;
+
+  &__subtitle {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &-line {
+    margin-top: 120px;
+
+    &__gradient {
+      width: 900px;
+      max-width: 100%;
+      height: 28px;
+      background: linear-gradient(90deg, #7516A8 0%, #4C49DA 21.54%, #179F80 35.48%, #80CC26 50%, #DDBE2A 64.49%, #F7A628 79.55%, #F3141C 100%);
+      border-radius: 3px;
+      margin: auto;
+    }
+
+    &__desc {
+      display: flex;
+      justify-content: space-between;
+      width: 900px;
+      max-width: 100%;
+      margin: 20px auto 0;
+    }
+
+    &-item {
+      font-weight: 500;
+      text-align: center;
+      line-height: 22px;
+      color: #FFFFFF;
+      width: 150px;
+      position: relative;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        position: absolute;
+        top: -110px;
+        left: calc(50% - 24px);
+      }
+
+      &--purple:before {
+        background: #9B5DC1;
+        box-shadow: 0 4px 10px rgba(217, 225, 238, 0.15);
+      }
+
+      &--green {
+        &:before {
+          background: #27AE60;
+          box-shadow: 0 4px 10px rgba(217, 225, 238, 0.15);
+        }
+
+        &:after {
+          content: url("/images/mark.svg");
+          position: absolute;
+          top: -95px;
+          left: calc(50% - 10px);
+        }
+      }
+
+      &--red:before {
+        background: #F16272;
+        box-shadow: 0 4px 10px rgba(255, 104, 121, 0.4);
+      }
+    }
+  }
+
+  &__warning {
+    width: 716px;
+    max-width: 100%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding: 20px 45px 20px 95px;
+    position: relative;
+    margin: 70px auto 0;
+    color: $text;
+
+    &:before {
+      content: url(/images/warning.svg);
+      position: absolute;
+      left: 35px;
+      top: calc(50% - 25px);
+    }
+  }
+}

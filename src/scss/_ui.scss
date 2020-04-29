@@ -34,4 +34,12 @@
     font-weight: 900;
     color: $primary;
   }
+
+  &--light {
+    color: #c3f6f7;
+
+    b {
+      color: #FFF;
+    }
+  }
 }
