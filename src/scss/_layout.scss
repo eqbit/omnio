@@ -1,7 +1,25 @@
+.wrapper {
+  overflow: hidden;
+}
+
 .container {
-  width: 1114px;
+  max-width: 1114px;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.left-corner {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.right-corner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }

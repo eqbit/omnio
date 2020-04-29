@@ -1,0 +1,30 @@
+.omnio-is {
+  padding: 70px 50px;
+  background: #ECF4FF;
+  box-shadow: 0 4px 10px rgba(217, 225, 238, 0.15);
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+
+  &__content {
+    position: relative;
+    padding-left: 200px;
+    margin-top: 40px;
+  }
+
+  &__text {
+    line-height: 23px;
+  }
+
+  &__img {
+    position: absolute;
+    left: -470px;
+    top: 0;
+  }
+
+  &__dots {
+    position: absolute;
+    top: calc(100% - 25px);
+    right: calc(100% - 160px);
+  }
+}

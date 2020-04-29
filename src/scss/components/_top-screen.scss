@@ -1,0 +1,73 @@
+@import "../variables";
+@import "../mixins";
+
+.top-screen {
+  position: relative;
+  padding: 70px 0 100px;
+  z-index: 1;
+
+  &__text {
+    max-width: 616px;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 58px;
+
+    b {
+      color: $primary;
+      font-weight: 900;
+    }
+
+    i {
+      font-size: 36px;
+      line-height: 43px;
+      font-weight: normal;
+      @include abeezee;
+    }
+  }
+
+  &-desc {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+
+    span {
+      font-size: 28px;
+      line-height: 30px;
+      color: $primary;
+    }
+
+    &__text {
+      font-size: 22px;
+      line-height: 30px;
+      margin-left: 10px;
+    }
+  }
+
+  &__btn {
+    margin-top: 50px;
+  }
+
+  &__img {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    z-index: 3;
+  }
+
+  &__dots {
+    position: absolute;
+    top: 40px;
+    right: -250px;
+    z-index: 2;
+  }
+
+  &__cloud {
+    position: absolute;
+    top: 75px;
+    right: -550px;
+    z-index: -1;
+  }
+}

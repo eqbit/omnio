@@ -1,0 +1,9 @@
+@mixin mq($width, $type: max) {
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+@mixin abeezee {
+  font-family: 'ABeeZee', sans-serif;
+}
