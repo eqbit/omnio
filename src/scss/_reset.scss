@@ -11,6 +11,10 @@ body {
   font-weight: normal;
 }
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 h1, h2 {
   font-family: 'museo-sans';
   font-weight: 900;

@@ -1,0 +1,61 @@
+.how-it-works {
+  display: flex;
+  margin-top: 60px;
+
+  &__wrapper {
+    margin-top: 110px;
+  }
+
+  &__grid {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -25px 0 -25px 70px;
+  }
+
+  &-item {
+    width: calc(33% - 20px);
+    margin: 25px 10px;
+    background: #ECF4FF;
+    border-radius: 6px;
+    position: relative;
+    padding: 35px;
+    line-height: 22px;
+
+    &:not(:first-child):before {
+      content: url("/images/arrow.svg");
+      display: block;
+      position: absolute;
+      left: -18px;
+      top: calc(50% - 3px);
+    }
+
+    &--large {
+      width: 348px;
+    }
+
+    &:not(&--large) + &--large {
+      margin-left: 30px;
+
+      &:before {
+        left: -30px;
+      }
+    }
+
+    &__num {
+      position: absolute;
+      left: -10px;
+      top: -24px;
+      font-size: 24px;
+      line-height: 22px;
+      width: 48px;
+      height: 48px;
+      background: #FFFFFF;
+      border: 2px solid #F16272;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+  }
+}
