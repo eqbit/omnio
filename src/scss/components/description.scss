@@ -1,0 +1,64 @@
+@import "../variables";
+
+.description {
+  margin-top: 110px;
+  background: $block-bg;
+  box-shadow: 0 4px 10px rgba(217, 225, 238, 0.15);
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  padding: 70px 50px;
+
+  &-top {
+    position: relative;
+    margin-top: 40px;
+    padding-left: 200px;
+
+    &__img {
+      position: absolute;
+      right: calc(100% - 180px);
+    }
+
+    &__text {
+      font-size: 16px;
+      line-height: 23px;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    margin-top: 50px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+
+      & + & {
+        margin-top: 25px;
+      }
+
+      &__img {
+        width: 48px;
+        height: 48px;
+        background: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 30px;
+        border-radius: 50%;
+      }
+
+      &__text {
+        flex: 1;
+        font-size: 16px;
+        line-height: 23px;
+      }
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    top: calc(100% - 75px);
+    left: calc(100% - 200px);
+  }
+}
