@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "deploy": "gulp build && git add -A && git commit -m initial && git push"
+    "deploy": "gulp build && git add . && git commit -m fixes && git push",
+    "start": "gulp watch"
   },
   "devDependencies": {
     "gulp-sass": "^4.0.2",
