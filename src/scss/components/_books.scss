@@ -1,0 +1,48 @@
+.books {
+  padding: 70px 0 150px;
+  position: relative;
+
+  &__row {
+    display: flex;
+    margin-top: 75px;
+  }
+
+  &-item {
+    &__title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      color: #226463;
+      text-align: center;
+    }
+
+    &__description {
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      margin-top: 16px;
+      min-height: 75px;
+    }
+  }
+
+  &__cloud-1 {
+    position: absolute;
+    top: 140px;
+    z-index: -1;
+    right: calc(100% - 400px);
+  }
+
+  &__cloud-2 {
+    position: absolute;
+    top: 250px;
+    left: calc(100% - 300px);
+    z-index: -1;
+  }
+
+  &__dots {
+    position: absolute;
+    z-index: -1;
+    top: calc(100% - 400px);
+    right: calc(100% - 200px);
+  }
+}
