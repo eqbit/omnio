@@ -1,0 +1,156 @@
+@import "../variables";
+
+.tariffs {
+  position: relative;
+  margin-top: 30px;
+
+  &-tabs {
+    display: flex;
+    list-style: none;
+
+    &__item {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 12px 25px;
+      background: #f7fbff;
+      border: 2px solid #E2ECEF;
+      min-width: 149px;
+      text-align: center;
+      cursor: pointer;
+
+      &:not(&--active) + & {
+        border-left: none;
+      }
+
+      &:first-child {
+        border-radius: 6px 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 6px 0 0;
+      }
+
+      &--active {
+        background: $block-bg;
+        border-color: transparent;
+
+        span {
+          position: relative;
+
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: $secondary;
+            top: calc(100% + 5px);
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    background: $primary;
+    margin-top: 110px;
+    padding: 70px 0;
+  }
+
+  &__table {
+    max-height: 1300px;
+    transition: .2s;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 6px 6px;
+
+    &--hidden {
+      max-height: 285px;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 151px;
+        background: linear-gradient(0deg, #ECF4FF 6.23%, rgba(236, 244, 255, 0) 117.22%);;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ECF4FF;
+      box-shadow: 0 4px 10px rgba(217, 225, 238, 0.15);
+      border-radius: 0 6px 6px 6px;
+
+      th {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 24px;
+        padding: 15px;
+        text-align: center;
+        width: 25%;
+        color: $gray;
+
+        &:nth-child(3) {
+          color: $primary;
+          background: #FFF;
+
+          span {
+            position: relative;
+
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              width: 80%;
+              height: 2px;
+              background: $secondary;
+              top: calc(100% + 5px);
+              left: 10%;
+            }
+          }
+        }
+      }
+
+      td {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 15px;
+
+        &:not(:first-child) {
+          text-align: center;
+        }
+
+        &:nth-child(3) {
+          background: #FFF;
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    width: 81px;
+    height: 81px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .2s;
+    position: absolute;
+    left: calc(50% - 40px);
+    top: calc(100% - 40px);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:after {
+      content: url("/images/down-arrow.svg");
+    }
+  }
+}
