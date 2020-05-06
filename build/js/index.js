@@ -47,6 +47,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     form.querySelector('button').disabled = true;
     console.log(state);
   });
+  var showFormTriggers = document.querySelectorAll('[data-show-form]');
+  var formWrapper = document.querySelector('[data-form-wrapper]');
+
+  var handleFormVisibility = function handleFormVisibility() {
+    formWrapper.classList.remove('form__wrapper--hidden');
+
+    _toConsumableArray(showFormTriggers).forEach(function (trigger) {
+      trigger.removeEventListener('click', handleFormVisibility);
+    });
+
+    setTimeout(function () {
+      document.querySelector('[data-form-anchor]').scrollIntoView();
+    }, 300);
+  };
+
+  _toConsumableArray(showFormTriggers).forEach(function (trigger) {
+    trigger.addEventListener('click', handleFormVisibility);
+  });
 }
 "use strict";
 
