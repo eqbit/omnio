@@ -8,6 +8,7 @@
     <title>Omnio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
 </head>
 <body>
 
@@ -355,9 +356,9 @@
 
         <div class="tariffs">
             <ul class="tariffs-tabs">
-                <li class="tariffs-tabs__item tariffs-tabs__item--active"><span>1 месяц</span></li>
-                <li class="tariffs-tabs__item"><span>Год</span></li>
-                <li class="tariffs-tabs__item"><span>Пакетные предложения</span></li>
+                <li class="tariffs-tabs__item tariffs-tabs__item--active" data-tariffs-tab data-tariffs-tab-month><span>1 месяц</span></li>
+                <li class="tariffs-tabs__item" data-tariffs-tab data-tariffs-tab-year><span>Год</span></li>
+                <!--<li class="tariffs-tabs__item" data-tariffs-tab><span>Пакетные предложения</span></li>-->
             </ul>
 
             <div class="tariffs__table tariffs__table--hidden" data-tariffs-table>
@@ -370,9 +371,26 @@
                     </tr>
                     <tr>
                         <td>Измерить пульс и артериальное давление (количество измерений за 24ч.)</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>5</td>
+
+                        <td>
+                            <span>1</span>
+
+                            <div class="tariffs__td-overlay">Free</div>
+                        </td>
+
+                        <td>
+                            <span>2</span>
+
+                            <div class="tariffs__td-overlay" data-month-price>600 ₽</div>
+                            <div class="tariffs__td-overlay" data-year-price style="display: none;">6000 ₽</div>
+                        </td>
+
+                        <td>
+                            <span>5</span>
+
+                            <div class="tariffs__td-overlay" data-month-price>800 ₽</div>
+                            <div class="tariffs__td-overlay" data-year-price style="display: none;">8000 ₽</div>
+                        </td>
                     </tr>
                     <tr>
                         <td>Стоимость дополнительного  анализа</td>
@@ -430,9 +448,18 @@
                     </tr>
                     <tr>
                         <td>Стоимость</td>
+
                         <td>Бесплатно 7 дней</td>
-                        <td>600 ₽</td>
-                        <td>800 ₽</td>
+
+                        <td>
+                            <span data-month-price>600 ₽</span>
+                            <span data-year-price style="display: none;">6000 ₽</span>
+                        </td>
+
+                        <td>
+                            <span data-month-price>800 ₽</span>
+                            <span data-year-price style="display: none;">8000 ₽</span>
+                        </td>
                     </tr>
                 </table>
             </div>
