@@ -1,3 +1,4 @@
+@import "../mixins";
 @import "../variables";
 
 .analysis {
@@ -6,9 +7,20 @@
   padding: 70px 0;
   color: #FFF;
 
+  @include mq(767px) {
+    margin-top: 40px;
+    padding: 40px 0;
+  }
+
   &__subtitle {
     text-align: center;
     margin-top: 20px;
+
+    @include mq(1023px) {
+      br {
+        display: none;
+      }
+    }
   }
 
   &-line {
@@ -38,6 +50,11 @@
       color: #FFFFFF;
       width: 150px;
       position: relative;
+
+      @include mq(767px) {
+        font-size: 14px;
+        line-height: normal;
+      }
 
       &:before {
         content: "";
@@ -86,11 +103,19 @@
     margin: 70px auto 0;
     color: $text;
 
+    @include mq(767px) {
+      padding: 15px 15px 15px 60px;
+    }
+
     &:before {
       content: url(/images/warning.svg);
       position: absolute;
       left: 35px;
       top: calc(50% - 25px);
+
+      @include mq(767px) {
+        left: 7px;
+      }
     }
   }
 }

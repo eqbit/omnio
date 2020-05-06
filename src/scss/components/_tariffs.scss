@@ -1,3 +1,4 @@
+@import "../mixins";
 @import "../variables";
 
 .tariffs {
@@ -18,6 +19,11 @@
       min-width: 149px;
       text-align: center;
       cursor: pointer;
+
+      @include mq(767px) {
+        padding: 12px;
+        min-width: 100px;
+      }
 
       &:not(&--active) + & {
         border-left-color: transparent;
@@ -57,6 +63,11 @@
     background: $primary;
     margin-top: 110px;
     padding: 70px 0;
+
+    @include mq(767px) {
+      margin: 0;
+      padding: 40px 0;
+    }
   }
 
   &__td-overlay {
@@ -71,6 +82,12 @@
     overflow: hidden;
     border-radius: 0 0 6px 6px;
 
+    @include mq(767px) {
+      overflow-x: scroll;
+      width: 100%;
+      border-radius: 0 6px 6px 6px;
+    }
+
     &:not(&--hidden) {
       padding-bottom: 40px;
       background: $block-bg;
@@ -82,6 +99,10 @@
       background: #ECF4FF;
       box-shadow: 0 4px 10px rgba(217, 225, 238, 0.15);
       border-radius: 0 6px 6px 6px;
+
+      @include mq(767px) {
+        width: 500px;
+      }
 
       th {
         font-weight: bold;

@@ -1,3 +1,4 @@
+@import "../mixins";
 @import "../variables";
 
 .description {
@@ -9,14 +10,32 @@
   z-index: 1;
   padding: 70px 50px;
 
+  @include mq(767px) {
+    margin: 0 -15px;
+    padding: 40px 15px;
+    border-radius: 0;
+  }
+
   &-top {
     position: relative;
     margin-top: 40px;
     padding-left: 200px;
 
+    @include mq(1023px) {
+      padding: 0;
+    }
+
+    @include mq(767px) {
+      margin-top: 30px;
+    }
+
     &__img {
       position: absolute;
       right: calc(100% - 180px);
+
+      @include mq(1023px) {
+        display: none;
+      }
     }
 
     &__text {
@@ -60,5 +79,9 @@
     position: absolute;
     top: calc(100% - 75px);
     left: calc(100% - 200px);
+
+    @include mq(767px) {
+      display: none;
+    }
   }
 }

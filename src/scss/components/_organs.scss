@@ -1,18 +1,35 @@
+@import "../variables";
+@import "../mixins";
+
 .organs {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 50px -25px -25px;
 
+  @include mq(767px) {
+    margin: 10px 0 0;
+  }
+
   &__wrapper {
     margin-top: 110px;
     margin-bottom: 110px;
+
+    @include mq(767px) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
   }
 
   &-item {
     width: calc(33% - 50px);
     text-align: center;
     margin: 50px 25px;
+
+    @include mq(767px) {
+      width: 100%;
+      margin: 25px 0 0;
+    }
 
     &__icon {
       margin: auto;

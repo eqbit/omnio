@@ -6,8 +6,18 @@
   padding: 70px 0 100px;
   z-index: 1;
 
+  @include mq(1023px) {
+    padding: 40px 0;
+  }
+
   &__text {
     max-width: 616px;
+
+    @include mq(1199px) {
+      @include mq(1024px, min) {
+        max-width: 560px;
+      }
+    }
   }
 
   &__title {
@@ -15,6 +25,11 @@
     font-size: 48px;
     line-height: 58px;
     color: $gray;
+
+    @include mq(767px) {
+      font-size: 24px;
+      line-height: normal;
+    }
 
     b {
       color: $primary;
@@ -26,6 +41,11 @@
       line-height: 43px;
       font-weight: normal;
       font-style: normal;
+
+      @include mq(767px) {
+        font-size: 24px;
+        line-height: normal;
+      }
     }
   }
 
@@ -44,6 +64,11 @@
       font-size: 22px;
       line-height: 30px;
       margin-left: 10px;
+
+      @include mq(767px) {
+        font-size: 18px;
+        line-height: 25px;
+      }
     }
   }
 
@@ -56,6 +81,10 @@
     right: 20px;
     bottom: 0;
     z-index: 3;
+
+    @include mq(1023px) {
+      display: none;
+    }
   }
 
   &__dots {
@@ -63,6 +92,10 @@
     top: 40px;
     right: -250px;
     z-index: 2;
+
+    @include mq(1023px) {
+      display: none;
+    }
   }
 
   &__cloud {

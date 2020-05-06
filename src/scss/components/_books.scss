@@ -1,10 +1,30 @@
+@import "../variables";
+@import "../mixins";
+
 .books {
   padding: 70px 0 150px;
   position: relative;
 
+  @include mq(1023px) {
+    padding-bottom: 70px;
+  }
+
+  @include mq(767px) {
+    padding: 40px 0;
+  }
+
   &__row {
     display: flex;
     margin-top: 75px;
+
+    @include mq(1199px) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    @include mq(767px) {
+      margin-top: 30px;
+    }
   }
 
   &-item {

@@ -1,17 +1,27 @@
+@import "../variables";
+@import "../mixins";
+
 .reasons {
   padding: 70px 0;
   background: url("/images/img-bg.jpg");
   background-size: cover;
   position: relative;
 
+  @include mq(767px) {
+    padding: 40px 0;
+    background: $primary;
+  }
+
   > .container {
     position: relative;
 
-    &:before {
-      content: url("/images/dots.svg");
-      position: absolute;
-      top: calc(100% + 25px);
-      right: calc(100% - 100px)
+    @include mq(768px, min) {
+      &:before {
+        content: url("/images/dots.svg");
+        position: absolute;
+        top: calc(100% + 25px);
+        right: calc(100% - 100px)
+      }
     }
   }
 
@@ -30,11 +40,20 @@
 
     & + & {
       margin-top: 40px;
+
+      @include mq(767px) {
+        margin-top: 20px;
+      }
     }
 
     &:before {
       content: url("/images/list-check.svg");
       margin-right: 20px;
+
+      @include mq(767px) {
+        margin-right: 10px;
+        transform: scale(.7);
+      }
     }
   }
 }

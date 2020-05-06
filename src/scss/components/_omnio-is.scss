@@ -1,3 +1,6 @@
+@import "../variables";
+@import "../mixins";
+
 .omnio-is {
   padding: 70px 50px;
   background: #ECF4FF;
@@ -6,10 +9,25 @@
   position: relative;
   z-index: 1;
 
+  @include mq(767px) {
+    padding: 40px 15px;
+    margin: 0 -15px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
   &__content {
     position: relative;
     padding-left: 200px;
     margin-top: 40px;
+
+    @include mq(1023px) {
+      padding: 0;
+    }
+
+    @include mq(767px) {
+      margin-top: 20px;
+    }
   }
 
   &__text {
@@ -21,11 +39,19 @@
     position: absolute;
     left: -470px;
     top: 0;
+
+    @include mq(1023px) {
+      display: none;
+    }
   }
 
   &__dots {
     position: absolute;
     top: calc(100% - 25px);
     right: calc(100% - 160px);
+
+    @include mq(767px) {
+      display: none;
+    }
   }
 }

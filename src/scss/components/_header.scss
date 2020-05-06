@@ -1,3 +1,6 @@
+@import "../variables";
+@import "../mixins";
+
 .header {
   padding: 16px 0;
   background: #FFF;
@@ -10,6 +13,10 @@
     top: 0;
     width: 100%;
     box-shadow: 0 4px 10px rgba(217,225,238,0.15);
+
+    @include mq(1023px) {
+      display: none;
+    }
   }
 
   &--visible {
