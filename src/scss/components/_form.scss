@@ -31,6 +31,10 @@
     overflow: hidden;
     transition: .3s;
 
+    @include mq(1023px) {
+      max-height: 550px
+    }
+
     @include mq(767px) {
       padding: 40px 0;
     }
