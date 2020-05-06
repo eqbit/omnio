@@ -15,6 +15,7 @@
   
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    form.querySelector('button').disabled = true;
   
     console.log(state);
   })

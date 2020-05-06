@@ -44,6 +44,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    form.querySelector('button').disabled = true;
     console.log(state);
   });
 }

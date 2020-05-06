@@ -22,6 +22,10 @@
       background: darken($secondary, 20);
     }
   }
+
+  &[disabled] {
+    background: $gray;
+  }
 }
 
 .block-title {
