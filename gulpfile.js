@@ -1,10 +1,11 @@
-const {src, dest, watch, parallel} = require('gulp');
+const {src, dest, watch, parallel, series} = require('gulp');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const sass = require('gulp-sass');
 const browsersync = require("browser-sync").create();
 const fileinclude = require('gulp-file-include');
+const hashsrc = require("gulp-hash-src");
 
 const browserSync = done => {
   browsersync.init({
@@ -78,9 +79,16 @@ const watcher = () => {
   watch('src/vendor/**', vendor);
 };
 
+const hasher = () => {
+  return src("build/index.html")
+    .pipe(hashsrc({build_dir:"build",src_path:"js",exts:[".js"]}))
+    .pipe(hashsrc({build_dir:"build",src_path:"css",exts:[".css"]}))
+    .pipe(dest("build"));
+};
+
 exports.js = scripts;
 exports.css = styles;
 exports.html = generateHtml;
 exports.images = sendImages;
 exports.watch = parallel(watcher, browserSync);
-exports.build = parallel(scripts, styles, generateHtml, sendImages, sendFonts, vendor);
+exports.build = series(parallel(scripts, styles, generateHtml, sendImages, sendFonts, vendor), hasher);

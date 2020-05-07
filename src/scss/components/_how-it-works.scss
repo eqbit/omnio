@@ -81,8 +81,9 @@
 
     &:not(&--large) + &--large {
       @include mq(768px, min) {
+        margin-left: 30px;
+
         &:before {
-          margin-left: 30px;
           left: -30px;
         }
       }
