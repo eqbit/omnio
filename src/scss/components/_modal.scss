@@ -31,9 +31,10 @@
     border-radius: 6px;
     z-index: 1;
     overflow: hidden;
+    max-width: 800px;
 
     @include mq(767px) {
-      width: calc(100% - 30px);
+      max-width: calc(100% - 30px);
       padding: 40px;
     }
   }
