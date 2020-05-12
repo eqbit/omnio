@@ -17,7 +17,15 @@
     e.preventDefault();
     form.querySelector('button').disabled = true;
     
-    console.log(state);
+    fetch('http://localhost:3002/request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(state)
+    }).then((response) => response.json()).then(data => {
+      console.log(data.message);
+    })
   });
   
   const showFormTriggers = document.querySelectorAll('[data-show-form]');

@@ -45,7 +45,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     form.querySelector('button').disabled = true;
-    console.log(state);
+    fetch('http://localhost:3002/request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(state)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log(data.message);
+    });
   });
   var showFormTriggers = document.querySelectorAll('[data-show-form]');
   var formWrapper = document.querySelector('[data-form-wrapper]');
