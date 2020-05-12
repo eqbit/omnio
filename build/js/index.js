@@ -31,6 +31,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 {
   var form = document.querySelector('[data-form');
   var inputs = form.querySelectorAll('input');
+  var modal = document.querySelector('[data-success-modal]');
+  var closeTriggers = document.querySelectorAll('[data-success-modal-close]');
   var state = {
     name: '',
     email: ''
@@ -53,8 +55,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       body: JSON.stringify(state)
     }).then(function (response) {
       return response.json();
-    }).then(function (data) {
-      console.log(data.message);
+    }).then(function (_ref) {
+      var message = _ref.message;
+
+      if (message === 'success') {
+        modal.classList.add('modal--open');
+        document.body.classList.add('overflow-hidden');
+      }
     });
   });
   var showFormTriggers = document.querySelectorAll('[data-show-form]');
@@ -74,6 +81,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
   _toConsumableArray(showFormTriggers).forEach(function (trigger) {
     trigger.addEventListener('click', handleFormVisibility);
+  });
+
+  _toConsumableArray(closeTriggers).forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      modal.classList.remove('modal--open');
+      document.body.classList.remove('overflow-hidden');
+    });
   });
 }
 "use strict";

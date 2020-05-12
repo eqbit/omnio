@@ -1,3 +1,22 @@
+@import "mixins";
+
+body.overflow-hidden {
+  overflow: hidden;
+  padding-right: 15px;
+
+  .header--fixed {
+    padding-right: 15px;
+  }
+
+  @include mq(1023px) {
+    padding-right: 0;
+
+    .header--fixed {
+      padding-right: 0;
+    }
+  }
+}
+
 .wrapper {
   overflow: hidden;
 }

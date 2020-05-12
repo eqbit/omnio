@@ -1,6 +1,8 @@
 {
   const form = document.querySelector('[data-form');
   const inputs = form.querySelectorAll('input');
+  const modal = document.querySelector('[data-success-modal]');
+  const closeTriggers = document.querySelectorAll('[data-success-modal-close]');
   
   const state = {
     name: '',
@@ -23,8 +25,11 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(state)
-    }).then((response) => response.json()).then(data => {
-      console.log(data.message);
+    }).then((response) => response.json()).then(({ message }) => {
+      if (message === 'success') {
+        modal.classList.add('modal--open');
+        document.body.classList.add('overflow-hidden');
+      }
     })
   });
   
@@ -33,7 +38,7 @@
   
   const handleFormVisibility = () => {
     formWrapper.classList.remove('form__wrapper--hidden');
-  
+    
     [...showFormTriggers].forEach((trigger) => {
       trigger.removeEventListener('click', handleFormVisibility);
     });
@@ -45,5 +50,12 @@
   
   [...showFormTriggers].forEach((trigger) => {
     trigger.addEventListener('click', handleFormVisibility);
-  })
+  });
+  
+  [...closeTriggers].forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      modal.classList.remove('modal--open');
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
 }
