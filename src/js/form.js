@@ -19,7 +19,7 @@
     e.preventDefault();
     form.querySelector('button').disabled = true;
     
-    fetch('http://localhost:3002/request', {
+    fetch('http://185.248.102.69:3002/request', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
