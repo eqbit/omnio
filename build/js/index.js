@@ -37,7 +37,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   };
 
   _toConsumableArray(inputs).forEach(function (input) {
-    input.addEventListener('input', function (e) {
+    input.addEventListener('input', function () {
       state[input.name] = input.value;
     });
   });

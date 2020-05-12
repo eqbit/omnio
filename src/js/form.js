@@ -8,9 +8,9 @@
   };
   
   [...inputs].forEach((input) => {
-    input.addEventListener('input', (e) => {
+    input.addEventListener('input', () => {
       state[input.name] = input.value;
-    })
+    });
   });
   
   form.addEventListener('submit', (e) => {
