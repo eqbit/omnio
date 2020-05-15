@@ -9,7 +9,8 @@
     }
   };
   
-  checkHeader();
-  
-  window.addEventListener('scroll', checkHeader);
+  if (header) {
+    checkHeader();
+    window.addEventListener('scroll', checkHeader);
+  }
 }

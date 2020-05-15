@@ -11,8 +11,10 @@
     }
   };
 
-  checkHeader();
-  window.addEventListener('scroll', checkHeader);
+  if (header) {
+    checkHeader();
+    window.addEventListener('scroll', checkHeader);
+  }
 }
 "use strict";
 
@@ -105,58 +107,61 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 {
-  var table = document.querySelector('[data-tariffs-table]');
-  var toggle = document.querySelector('[data-tariffs-toggle]');
   var tabs = document.querySelectorAll('[data-tariffs-tab]');
-  var isVisible = false;
 
-  var toggleTableVisibility = function toggleTableVisibility(show) {
-    isVisible = show;
+  if (tabs.length) {
+    var toggle = document.querySelector('[data-tariffs-toggle]');
+    var table = document.querySelector('[data-tariffs-table]');
+    var isVisible = false;
 
-    if (show) {
-      table.classList.remove('tariffs__table--hidden');
-      toggle.classList.add('tariffs__arrow--up');
-    } else {
-      table.classList.add('tariffs__table--hidden');
-      toggle.classList.remove('tariffs__arrow--up');
-    }
-  };
+    var toggleTableVisibility = function toggleTableVisibility(show) {
+      isVisible = show;
 
-  toggle.addEventListener('click', function () {
-    toggleTableVisibility(!isVisible);
-  });
+      if (show) {
+        table.classList.remove('tariffs__table--hidden');
+        toggle.classList.add('tariffs__arrow--up');
+      } else {
+        table.classList.add('tariffs__table--hidden');
+        toggle.classList.remove('tariffs__arrow--up');
+      }
+    };
 
-  _toConsumableArray(tabs).forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      _toConsumableArray(tabs).forEach(function (tab) {
-        tab.classList.remove('tariffs-tabs__item--active');
+    toggle.addEventListener('click', function () {
+      toggleTableVisibility(!isVisible);
+    });
+
+    _toConsumableArray(tabs).forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        _toConsumableArray(tabs).forEach(function (tab) {
+          tab.classList.remove('tariffs-tabs__item--active');
+        });
+
+        tab.classList.add('tariffs-tabs__item--active');
+      });
+    });
+
+    var monthPrice = document.querySelectorAll('[data-month-price]');
+    var yearPrice = document.querySelectorAll('[data-year-price]');
+    var monthPriceTrigger = document.querySelector('[data-tariffs-tab-month]');
+    var yearPriceTrigger = document.querySelector('[data-tariffs-tab-year]');
+    monthPriceTrigger.addEventListener('click', function () {
+      _toConsumableArray(yearPrice).forEach(function (item) {
+        item.style.display = 'none';
       });
 
-      tab.classList.add('tariffs-tabs__item--active');
+      _toConsumableArray(monthPrice).forEach(function (item) {
+        item.style.display = '';
+      });
     });
-  });
+    yearPriceTrigger.addEventListener('click', function () {
+      _toConsumableArray(monthPrice).forEach(function (item) {
+        item.style.display = 'none';
+      });
 
-  var monthPrice = document.querySelectorAll('[data-month-price]');
-  var yearPrice = document.querySelectorAll('[data-year-price]');
-  var monthPriceTrigger = document.querySelector('[data-tariffs-tab-month]');
-  var yearPriceTrigger = document.querySelector('[data-tariffs-tab-year]');
-  monthPriceTrigger.addEventListener('click', function () {
-    _toConsumableArray(yearPrice).forEach(function (item) {
-      item.style.display = 'none';
+      _toConsumableArray(yearPrice).forEach(function (item) {
+        item.style.display = '';
+      });
     });
-
-    _toConsumableArray(monthPrice).forEach(function (item) {
-      item.style.display = '';
-    });
-  });
-  yearPriceTrigger.addEventListener('click', function () {
-    _toConsumableArray(monthPrice).forEach(function (item) {
-      item.style.display = 'none';
-    });
-
-    _toConsumableArray(yearPrice).forEach(function (item) {
-      item.style.display = '';
-    });
-  });
+  }
 }
 //# sourceMappingURL=index.js.map

@@ -31,9 +31,11 @@
     line-height: 24px;
     color: #000;
     transition: .2s;
+    text-decoration: underline;
 
     &:hover {
       color: $primary;
+      text-decoration: none;
     }
   }
 }

@@ -39,7 +39,7 @@
     color: #FFFFFF;
 
     & + & {
-      margin-top: 40px;
+      margin-top: 20px;
 
       @include mq(767px) {
         margin-top: 20px;
@@ -49,6 +49,7 @@
     &:before {
       content: url("/images/list-check.svg");
       margin-right: 20px;
+      transform: translateY(3px);
 
       @include mq(767px) {
         margin-right: 10px;
