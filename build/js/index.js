@@ -34,7 +34,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   var form = document.querySelector('[data-form');
   var inputs = form.querySelectorAll('input');
   var modal = document.querySelector('[data-success-modal]');
+  var errorModal = document.querySelector('[data-error-modal]');
   var closeTriggers = document.querySelectorAll('[data-success-modal-close]');
+  var errorCloseTriggers = document.querySelectorAll('[data-error-modal-close]');
   var state = {
     name: '',
     email: ''
@@ -64,6 +66,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         modal.classList.add('modal--open');
         document.body.classList.add('overflow-hidden');
       }
+    })["catch"](function () {
+      errorModal.classList.add('modal--open');
+      document.body.classList.add('overflow-hidden');
+      setTimeout(function () {
+        errorModal.classList.remove('modal--open');
+        document.body.classList.remove('overflow-hidden');
+      }, 4000);
+      setTimeout(function () {
+        form.querySelector('button').disabled = false;
+      }, 10000);
     });
   });
   var showFormTriggers = document.querySelectorAll('[data-show-form]');
@@ -86,6 +98,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   });
 
   _toConsumableArray(closeTriggers).forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      modal.classList.remove('modal--open');
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
+
+  _toConsumableArray(errorCloseTriggers).forEach(function (trigger) {
     trigger.addEventListener('click', function () {
       modal.classList.remove('modal--open');
       document.body.classList.remove('overflow-hidden');

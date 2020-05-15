@@ -2,7 +2,9 @@
   const form = document.querySelector('[data-form');
   const inputs = form.querySelectorAll('input');
   const modal = document.querySelector('[data-success-modal]');
+  const errorModal = document.querySelector('[data-error-modal]');
   const closeTriggers = document.querySelectorAll('[data-success-modal-close]');
+  const errorCloseTriggers = document.querySelectorAll('[data-error-modal-close]');
   
   const state = {
     name: '',
@@ -25,11 +27,24 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(state)
-    }).then((response) => response.json()).then(({ message }) => {
+    }).then((response) => response.json())
+      .then(({ message }) => {
       if (message === 'success') {
         modal.classList.add('modal--open');
         document.body.classList.add('overflow-hidden');
       }
+    }).catch(() => {
+      errorModal.classList.add('modal--open');
+      document.body.classList.add('overflow-hidden');
+  
+      setTimeout(() => {
+        errorModal.classList.remove('modal--open');
+        document.body.classList.remove('overflow-hidden');
+      }, 4000);
+  
+      setTimeout(() => {
+        form.querySelector('button').disabled = false;
+      }, 10000);
     })
   });
   
@@ -53,6 +68,13 @@
   });
   
   [...closeTriggers].forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      modal.classList.remove('modal--open');
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
+  
+  [...errorCloseTriggers].forEach((trigger) => {
     trigger.addEventListener('click', () => {
       modal.classList.remove('modal--open');
       document.body.classList.remove('overflow-hidden');
