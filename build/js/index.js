@@ -51,7 +51,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     form.querySelector('button').disabled = true;
-    fetch('http://185.248.102.69:3002/request', {
+    fetch('https://omnio.eqbit.tech/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -66,7 +66,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         modal.classList.add('modal--open');
         document.body.classList.add('overflow-hidden');
       }
-    })["catch"](function () {
+    })["catch"](function (e) {
+      console.log(e);
       errorModal.classList.add('modal--open');
       document.body.classList.add('overflow-hidden');
       setTimeout(function () {

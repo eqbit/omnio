@@ -21,7 +21,7 @@
     e.preventDefault();
     form.querySelector('button').disabled = true;
     
-    fetch('http://185.248.102.69:3002/request', {
+    fetch('https://omnio.eqbit.tech/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +33,9 @@
         modal.classList.add('modal--open');
         document.body.classList.add('overflow-hidden');
       }
-    }).catch(() => {
+    }).catch((e) => {
+      console.log(e);
+      
       errorModal.classList.add('modal--open');
       document.body.classList.add('overflow-hidden');
   
