@@ -160,7 +160,11 @@
 
       tr {
         transition: .2s;
+      }
+    }
 
+    &:not(&--hidden) {
+      tr {
         &:hover {
           td {
             background: lighten($block-bg, 3.2);
