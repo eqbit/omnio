@@ -91,7 +91,7 @@
     overflow: hidden;
     border-radius: 0 0 6px 6px;
 
-    @include mq(767px) {
+    @include mq(1023px) {
       overflow-x: scroll;
       width: 100%;
       border-radius: 0 6px 6px 6px;
@@ -109,8 +109,8 @@
       box-shadow: 0 4px 10px rgba(217, 225, 238, 0.15);
       border-radius: 0 6px 6px 6px;
 
-      @include mq(767px) {
-        width: 500px;
+      @include mq(1023px) {
+        width: 900px;
       }
 
       th {
@@ -119,10 +119,10 @@
         line-height: 24px;
         padding: 15px;
         text-align: center;
-        width: 25%;
+        width: 20%;
         color: $gray;
 
-        &:nth-child(3) {
+        &:nth-child(4) {
           color: $primary;
           background: #FFF;
 
@@ -153,7 +153,7 @@
           text-align: center;
         }
 
-        &:nth-child(3) {
+        &:nth-child(4) {
           background: #FFF;
         }
       }
