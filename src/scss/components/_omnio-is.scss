@@ -33,6 +33,10 @@
   &__text {
     line-height: 23px;
     min-height: 295px;
+
+    p + p {
+      margin-top: 15px;
+    }
   }
 
   &__img {
